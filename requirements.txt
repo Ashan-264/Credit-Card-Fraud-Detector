@@ -1,0 +1,12 @@
+
+streamlit
+openai
+numpy
+pandas
+scikit-learn
+xgboost
+pickle-mixin
+matplotlib
+plotly
+fastapi
+uvicorn
