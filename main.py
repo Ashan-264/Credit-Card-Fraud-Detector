@@ -77,7 +77,7 @@ def make_predictions(input_df, input_dict):
     probabilities = {
         'Decision Tree': decision_tree_model.predict_proba(input_df)[0][1],
         'XGBOOST ': xgboost_model.predict_proba(input_df1)[0][1],
-        'Naive Bayes': naive_baye_model.predict_proba(input_df)[0][1],
+        #'Naive Bayes': naive_baye_model.predict_proba(input_df)[0][1],
         'Logistic Regression': lr_model.predict_proba(input_df)[0][1],
         'Gradient Boosting': hgb_model.predict_proba(input_df)[0][1]
     }
