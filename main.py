@@ -162,28 +162,19 @@ Avoid using "I" or "you" and speak only in the third person.
 
 
 def generate_email(probability, input_dict, explanation, first):
-    prompt = f"""You are a manager at HS Bank. You are responsible for
-ensuring customers stay with the bank and are incentivized with
-various offers.
-
-You noticed a customer named {first} has a {round(probability * 
-100, 1)}% probability of churning.
-
+    prompt = f"""You are a manager at HS Bank, responsible for customer relations and ensuring customers remain loyal. Write a professional email to a customer named {first}, alerting them to potential unusual activity on their account that may indicate fraud. Emphasize that HS Bank is actively working to protect their finances and provide actionable security steps.
 Here is the customer's information:
 {input_dict}
 
-Here is some explanation as to why the customer might be at risk 
-of churning:
+Here is some explanation as to why the fraud was detected:
 {explanation}
+The email should:
 
-Generate an email to the customer based on their information, 
-asking them to stay if they are at risk of churning, or offering them 
-incentives so that they become more loyal to the bank.
-
-Make sure to list out a set of incentives to stay based on their 
-information, in bullet point format. Don't ever mention the 
-probability of churning, or the machine learning model to the 
-customer.
+Suggest three steps the customer can take to enhance their account security (e.g., reviewing transactions, updating passwords, enabling two-factor authentication).
+Offer a set of personalized incentives (in bullet point format) to encourage customer loyalty, such as cashback offers, reduced loan rates, or fee waivers.
+Maintain a positive and reassuring tone, focusing on the bank's dedication to security and customer satisfaction.
+Provide clear contact information for the customer to reach out with any concerns or questions.
+Do not mention the probability of churn, machine learning models, or any internal data analysis. Make sure the email feels personalized and customer-centric, reflecting the bank's care and commitment to their financial well-being.
 """
     raw_response = client.chat.completions.create(model="Llama-3.1-8b-instant",
                                                   messages=[{
