@@ -13,8 +13,8 @@ client = OpenAI(
 
 
 def load_model(filename):
-    with open(filename, 'rb') as file:
-        return pickle.load(file)
+  with open(filename, 'rb') as file:
+    return pickle.load(file)
 
 
 xgboost_model = load_model('xgb_model.pkl')
