@@ -17,7 +17,7 @@ def load_model(filename):
     return pickle.load(file)
 
 
-xgboost_model = load_model('xgb_model.pkl')
+xgboost_model = load_model('xgb_model1.pkl')
 
 naive_baye_model = load_model('mb_model.pkl')
 
