@@ -23,7 +23,7 @@ naive_baye_model = load_model('mb_model.pkl')
 
 decision_tree_model = load_model('dt_model.pkl')
 
-lr_model = load_model('lr_model.pkl')
+lr_model = load_model('dt_model.pkl')
 
 hgb_model = load_model('hgb_model.pkl')
 
