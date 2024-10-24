@@ -10,7 +10,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1",
     api_key=os.environ['GROQ_API_KEY'],
 )
-
+#change
 
 def load_model(filename):
   with open(filename, 'rb') as file:
