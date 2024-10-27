@@ -17,7 +17,7 @@ def load_model(filename):
     return pickle.load(file)
 
 
-xgboost_model = load_model('dt_model.pkl')
+xgboost_model = load_model('xgb_model1.pkl')
 
 naive_baye_model = load_model('mb_model.pkl')
 
@@ -90,7 +90,7 @@ def make_predictions(input_df, input_dict):
         fig = ut.create_gauge_chart(avg_probability)
         st.plotly_chart(fig, use_container_width=True)
         st.write(
-            f"The customer has a {avg_probability * 100:.2f}% chance of churning."
+            f"The customer has a {avg_probability * 100:.2f}% chance of fraud."
         )
 
     with col2:
