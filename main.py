@@ -262,7 +262,7 @@ with col2:
                                             selected_transaction['merch_lat']))
 
     # Input for the merchant's longitude
-    transaction_date_time = str(selected_transaction['zip'])
+    transaction_date_time = str(selected_transaction['trans_date_trans_time'])
     merchant_longitude = st.number_input(
         "Merchant Longitude",
         min_value=-180.0,
