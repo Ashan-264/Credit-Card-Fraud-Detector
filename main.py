@@ -269,7 +269,7 @@ with col2:
         max_value=180.0,
         value=float(selected_transaction['merch_long']))
 
-    # Input for whether the transaction was made with a credit card
+    # Input 3 for whether the transaction was made with a credit card
 
     # Input for whether the customer is an active member
 
