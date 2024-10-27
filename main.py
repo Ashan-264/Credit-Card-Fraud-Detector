@@ -51,7 +51,8 @@ def prepare_input(amount, zip_code, latitude, longitude, merchant_latitude,
         'category_personal_care': 1 if category == 'personal_care' else 0,
         'category_shopping_net': 1 if category == 'shopping_net' else 0,
         'category_shopping_pos': 1 if category == 'shopping_pos' else 0,
-        'category_travel': 1 if category == 'travel' else 0
+        'category_travel': 1 if category == 'travel' else 0,
+        'hour': selected_transaction['hour']
     }
     # # Feature engineering
     # input_dict['CLV'] = tenure * num_of_products * is_active_member
@@ -78,8 +79,8 @@ def make_predictions(input_df, input_dict):
         'Decision Tree': decision_tree_model.predict_proba(input_df)[0][1],
         'XGBOOST ': xgboost_model.predict_proba(input_df1)[0][1],
         #'Naive Bayes': naive_baye_model.predict_proba(input_df)[0][1],
-        'Logistic Regression': lr_model.predict_proba(input_df)[0][1],
-        'Gradient Boosting': hgb_model.predict_proba(input_df)[0][1]
+        #'Logistic Regression': lr_model.predict_proba(input_df)[0][1],
+        #'Gradient Boosting': hgb_model.predict_proba(input_df)[0][1]
     }
 
     avg_probability = np.mean(list(probabilities.values()))
