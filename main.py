@@ -29,7 +29,7 @@ hgb_model = load_model('hgb_model.pkl')
 
 
 def prepare_input(amount, zip_code, latitude, longitude, merchant_latitude,
-                  merchant_longitude, category):
+                  merchant_longitude, category, transaction_date_time):
 
     input_dict = {
         'amt': amount,
@@ -52,7 +52,7 @@ def prepare_input(amount, zip_code, latitude, longitude, merchant_latitude,
         'category_shopping_net': 1 if category == 'shopping_net' else 0,
         'category_shopping_pos': 1 if category == 'shopping_pos' else 0,
         'category_travel': 1 if category == 'travel' else 0,
-        'hour': selected_transaction['hour']
+        'hour': pd.to_datetime(transaction_date_time).hour
     }
     # # Feature engineering
     # input_dict['CLV'] = tenure * num_of_products * is_active_member
@@ -262,6 +262,7 @@ with col2:
                                             selected_transaction['merch_lat']))
 
     # Input for the merchant's longitude
+    transaction_date_time = str(selected_transaction['zip'])
     merchant_longitude = st.number_input(
         "Merchant Longitude",
         min_value=-180.0,
@@ -276,7 +277,7 @@ with col2:
 
 input_df, input_dict = prepare_input(amount, zip_code, latitude, longitude,
                                      merchant_latitude, merchant_longitude,
-                                     category)
+                                     category,transaction_date_time)
 
 avg_probability = make_predictions(input_df, input_dict)
 
